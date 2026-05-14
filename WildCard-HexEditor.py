@@ -21,12 +21,10 @@ def string_to_little_endian_hex(value):
     Otherwise, converts the string itself to UTF-8 hex.
     """
     try:
-        # Try to convert to number first
         try:
             num_val = float(value)
             int_val = int(num_val)
             
-            # Determine how many bytes needed
             if int_val == 0:
                 return "00"
             
@@ -38,7 +36,7 @@ def string_to_little_endian_hex(value):
             # Convert to little-endian hex
             hex_str = int_val.to_bytes(byte_length, 'little').hex().upper()
             
-            # Add spaces between byte pairs for readability
+            # Space between bites
             return ' '.join(hex_str[i:i+2] for i in range(0, len(hex_str), 2))
         except (ValueError, OverflowError):
             # Not numeric, convert as UTF-8 string
@@ -92,7 +90,7 @@ def hex_find_replace(file_path, search_pattern, replace_pattern, occurrence=None
         matches_to_replace = [matches[occurrence - 1]] #only the X occurrence
         logger.info(f"Found {len(matches)} occurrences, replacing {occurrence}th...")
     else:
-        matches_to_replace = matches #all
+        matches_to_replace = matches
         logger.info(f"Found {len(matches)} occurrences, replacing all...")
 
     # Replace occurrences (in reverse order to maintain correct positions)
@@ -118,10 +116,10 @@ def prepare_replace_pattern(replace_pattern):
     new_parts = []
     for part in parts:
         if part.startswith('"') and part.endswith('"'):
-            # Extract the value between the quotes
+            # remove quotes
             value_str = part[1:-1]
 
-            # Attempt conversion to little-endian hex
+            # Convert
             hex_value = string_to_little_endian_hex(value_str)
 
             if hex_value is None:
@@ -135,7 +133,7 @@ def prepare_replace_pattern(replace_pattern):
 
 if __name__ == "__main__":
     if len(sys.argv) < 4 or len(sys.argv) > 5:
-        logger.error("Usage: python hex_replace.py <file path> <search pattern> <replace pattern> <occurrence>")
+        logger.error("Usage: python WildCard-HexEditor.py <file path> <search pattern> <replace pattern> <occurrence>")
         logger.error("occurrence is the only optional parameter.\nEmpty = all matches will be replaced.\nAny value = only replace that value occurrence.")
         sys.exit(1)
 
