@@ -4,6 +4,9 @@ A command-line program for finding and replacing hex patterns in any file with s
 
 ko-fi.com/birden
 
+Currently being used for:
+- Tom Clancy's Rainbow Six: Vegas 1 (for resolution patching)
+
 ## Overview
 
 This allows you to search for and replace specific byte sequences in any file using hexadecimal notation. The main feature is **wildcard pattern matching** using `??` to match any single byte.
