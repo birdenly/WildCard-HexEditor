@@ -2,6 +2,8 @@
 
 A command-line program for finding and replacing hex patterns in any file with support for wildcard matching. This doesn't make backups of the older file, this was made for Nucleus Co-op, where files are copied over to another folder to not affect the main files.
 
+ko-fi.com/birden
+
 ## Overview
 
 This allows you to search for and replace specific byte sequences in any file using hexadecimal notation. The main feature is **wildcard pattern matching** using `??` to match any single byte.
@@ -30,14 +32,10 @@ OR
 
 ## Usage
 
+All the examples with *python WildCard-HexEditor.py*, you can instead use the WildCard-HexEditor.exe downloaded.
 
 ```bash
 python WildCard-HexEditor.py <file_path> <search_pattern> <replace_pattern> [occurrence]
-```
-
-
-```bash
-WildCard-HexEditor.exe <file_path> <search_pattern> <replace_pattern> [occurrence]
 ```
 
 ### Parameters
