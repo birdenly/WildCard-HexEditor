@@ -6,6 +6,7 @@ ko-fi.com/birden
 
 Currently being used for:
 - Tom Clancy's Rainbow Six: Vegas 1 (for resolution patching)
+- Blur (Mutex and memory patching)
 
 ## Overview
 
